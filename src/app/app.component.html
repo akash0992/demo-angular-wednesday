@@ -1,13 +1,52 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center; padding-top: 100px">
+<div style="text-align:center; padding-top: 50px">
   <h1>
-    Demo for Built-in pipes
+    Demo for Custom pipes
   </h1>
-  <p>The birthday date is {{ birthday | date }}</p>
-  <!--<p>The birthday date is {{ birthday | date:"MM/dd/yy" }} </p>-->
-  <!--<p>The birthday date is {{ birthday | date:format }}</p>
-  <button (click)="toggleFormat()">Toggle Format</button>-->
+  <h2>Power Booster</h2>
+    <p>Super power boost: {{2 | exponentialStrength: 10}}</p>
 
-  <!--<p>The chained birthday date is {{ birthday | date | uppercase}}</p>-->
-  <!--<p>The chained birthday date is {{  birthday | date:'fullDate' | uppercase}}</p>-->
+  <!--<h2>Power Boost Calculator</h2>
+    <div>Normal power: <input [value]="power"
+       (input)="power=$event.target.value" ></div>
+    <div>Boost factor: <input [value]="factor"
+       (input)="factor=$event.target.value" ></div>
+    <p>
+      Super Hero Power: {{power | exponentialStrength: factor}}
+    </p>-->
+
+  <!--<h2>Pure & Impure pipes</h2>
+  <p>
+    New hero:
+    <input type="text" [value]="name" (keyup.enter)="addHero($event.target.value);" placeholder="hero name">
+    <input id="can-fly" type="checkbox" [checked]="canFly" (change)="canFly = !canFly"> can fly
+  </p>
+  <p>
+    <input id="mutate" type="checkbox" [checked]="mutate" (change)="mutate = !mutate">Mutate array
+    <button (click)="reset()">Reset</button>
+  </p>
+
+  <h4>Heroes who fly (piped) Pure Pipe</h4>
+  <div id="flyers">
+    <div *ngFor="let hero of (flyers | flying)">
+      {{hero.name}}
+    </div>
+  </div>
+
+  <h4>Heroes who fly (piped) Impure Pipe</h4>
+  <div id="flyers">
+    <div *ngFor="let hero of (flyers | flyingImpure)">
+      {{hero.name}}
+    </div>
+  </div>
+
+  <h4>All Heroes (no pipe)</h4>
+  <div id="all">
+    <div *ngFor="let hero of flyers">
+      {{hero.name}}
+    </div>
+  
+  
+  </div>-->
+  
 </div>

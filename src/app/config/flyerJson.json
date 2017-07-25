@@ -1,0 +1,12 @@
+[
+    { "id": 11, "name": "Mr. Nice", "canFly": true },
+    { "id": 12, "name": "Narco", "canFly": false },
+    { "id": 13, "name": "Bombasto", "canFly": true },
+    { "id": 14, "name": "Celeritas", "canFly": false },
+    { "id": 15, "name": "Magneta", "canFly": false },
+    { "id": 16, "name": "RubberMan", "canFly": false },
+    { "id": 17, "name": "Dynama", "canFly": false },
+    { "id": 18, "name": "Dr IQ", "canFly": true },
+    { "id": 19, "name": "Magma", "canFly": true },
+    { "id": 20, "name": "Tornado", "canFly": false }
+  ]
