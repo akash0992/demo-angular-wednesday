@@ -1,5 +1,5 @@
 import { Component, Input, Output } from '@angular/core';
-import { FLYER } from './config/flyerTs'
+import { Hero }    from './config/hero';
 
 @Component({
   selector: 'app-root',
@@ -7,35 +7,34 @@ import { FLYER } from './config/flyerTs'
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  power = 5;
-  factor = 1;
+  powers = ['Really Smart', 'Super Flexible',
+            'Super Hot', 'Weather Changer'];
 
-  //  Pure-Impure Pipes
-  flyers: any[] = FLYER;
-  @Input() canFly: boolean = true;
-  @Input() mutate: boolean = true;
-  @Input() name: string = 'dummy-value';
+  model = new Hero(14, 'T-REX', this.powers[0], 'Chuck Overstreet');
 
-  addHero(name: string) {
-    name = name.trim();
-    if (!name) { return; }
-    let hero = { name, canFly: this.canFly };
-    if (this.mutate) {
-      // Pure pipe won't update display because heroes array reference is unchanged
-      // Impure pipe will display
-      this.flyers.push(hero);
-      this.name = '';
-    } else {
-      // Pipe updates display because heroes array is a new object
-      this.flyers = this.flyers.concat(hero);
-    }
+  submitted = false;
+
+  onSubmit() { this.submitted = true; }
+
+  // TODO: Remove this when we're done
+  get diagnostic() { return JSON.stringify(this.model); }
+
+  newHero() {
+    this.model = new Hero(42, '', '');
   }
 
-  reset() {
-    this.canFly = true;
-    this.mutate = true;
-    this.name = '';
-    this.flyers = FLYER.slice();
+  skyDog(): Hero {
+    let myHero =  new Hero(42, 'SkyDog',
+                           'Fetch any object at any distance',
+                           'Leslie Rollover');
+    console.log('My hero is called ' + myHero.name); // "My hero is called SkyDog"
+    return myHero;
+  }
+
+  //   Name via form.controls = {{showFormControls(heroForm)}}
+  showFormControls(form: any) {
+    return form && form.controls['name'] &&
+    form.controls['name'].value; 
   }
 
 }

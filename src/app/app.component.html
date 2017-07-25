@@ -1,52 +1,174 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center; padding-top: 50px">
+<div style="text-align:center;">
   <h1>
-    Demo for Custom pipes
-  </h1>
-  <h2>Power Booster</h2>
-    <p>Super power boost: {{2 | exponentialStrength: 10}}</p>
+    Demo for Forms
+  </h1>  
+</div>
+<!--<div class="container">
+  <div [hidden]="submitted">
+    <h1>Hero Form</h1>
+    <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name"
+               required
+               [(ngModel)]="model.name" name="name"
+               #name="ngModel">
+        <div [hidden]="name.valid || name.pristine"
+             class="alert alert-danger">
+          Name is required
+        </div>
+      </div>
 
-  <!--<h2>Power Boost Calculator</h2>
-    <div>Normal power: <input [value]="power"
-       (input)="power=$event.target.value" ></div>
-    <div>Boost factor: <input [value]="factor"
-       (input)="factor=$event.target.value" ></div>
-    <p>
-      Super Hero Power: {{power | exponentialStrength: factor}}
-    </p>-->
+      <div class="form-group">
+        <label for="alterEgo">Alter Ego</label>
+        <input type="text" class="form-control" id="alterEgo"
+               [(ngModel)]="model.alterEgo" name="alterEgo">
+      </div>
 
-  <!--<h2>Pure & Impure pipes</h2>
-  <p>
-    New hero:
-    <input type="text" [value]="name" (keyup.enter)="addHero($event.target.value);" placeholder="hero name">
-    <input id="can-fly" type="checkbox" [checked]="canFly" (change)="canFly = !canFly"> can fly
-  </p>
-  <p>
-    <input id="mutate" type="checkbox" [checked]="mutate" (change)="mutate = !mutate">Mutate array
-    <button (click)="reset()">Reset</button>
-  </p>
+      <div class="form-group">
+        <label for="power">Hero Power</label>
+        <select class="form-control" id="power"
+                required
+                [(ngModel)]="model.power" name="power"
+                #power="ngModel">
+          <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
+        </select>
+        <div [hidden]="power.valid || power.pristine" class="alert alert-danger">
+          Power is required
+        </div>
+      </div>
 
-  <h4>Heroes who fly (piped) Pure Pipe</h4>
-  <div id="flyers">
-    <div *ngFor="let hero of (flyers | flying)">
-      {{hero.name}}
-    </div>
+      <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid">Submit</button>
+      <button type="button" class="btn btn-default" (click)="newHero(); heroForm.reset()">New Hero</button>
+      <i>with</i> reset
+
+      &nbsp;&nbsp;
+      <button type="button" class="btn btn-default" (click)="newHero()">New Hero</button>
+      <i>without</i> reset
+
+      <div>
+        <hr>
+        Name via form.controls = {{showFormControls(heroForm)}}
+      </div>
+    </form>
   </div>
 
-  <h4>Heroes who fly (piped) Impure Pipe</h4>
-  <div id="flyers">
-    <div *ngFor="let hero of (flyers | flyingImpure)">
-      {{hero.name}}
+  <div [hidden]="!submitted">
+    <h2>You submitted the following:</h2>
+    <div class="row">
+      <div class="col-xs-3">Name</div>
+      <div class="col-xs-9  pull-left">{{ model.name }}</div>
     </div>
+    <div class="row">
+      <div class="col-xs-3">Alter Ego</div>
+      <div class="col-xs-9 pull-left">{{ model.alterEgo }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Power</div>
+      <div class="col-xs-9 pull-left">{{ model.power }}</div>
+    </div>
+    <br>
+    <button class="btn btn-primary" (click)="submitted=false">Edit</button>
+  </div>
+</div>-->
+
+<!-- ====================================================  -->
+  <div>
+    <form>
+
+       <!-- ... all of the form ... -->
+
+    </form>
   </div>
 
-  <h4>All Heroes (no pipe)</h4>
-  <div id="all">
-    <div *ngFor="let hero of flyers">
-      {{hero.name}}
-    </div>
-  
-  
+<!-- ====================================================  -->
+<hr>
+<style>
+  .no-style .ng-valid {
+  border-left: 1px  solid #CCC
+}
+
+  .no-style .ng-invalid {
+  border-left: 1px  solid #CCC
+}
+</style>
+<div class="no-style" style="margin-left: 4px">
+  <!--<div class="container">
+      <h1>Hero Form</h1>
+      <form>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" id="name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="alterEgo">Alter Ego</label>
+          <input type="text" class="form-control" id="alterEgo">
+        </div>
+
+        <div class="form-group">
+          <label for="power">Hero Power</label>
+          <select class="form-control" id="power" required>
+            <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-success">Submit</button>
+
+      </form>
   </div>-->
-  
+
+  <!-- ====================================================  -->
+  <hr>
+  <!--<div class="container">
+      <h1>Hero Form</h1>
+      <form #heroForm="ngForm">
+        {{diagnostic}}
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" id="name"
+                 required
+                 [(ngModel)]="model.name" name="name">
+        </div>
+
+        <div class="form-group">
+          <label for="alterEgo">Alter Ego</label>
+          <input type="text"  class="form-control" id="alterEgo"
+                 [(ngModel)]="model.alterEgo" name="alterEgo">
+        </div>
+
+        <div class="form-group">
+          <label for="power">Hero Power</label>
+          <select class="form-control"  id="power"
+                  required
+                  [(ngModel)]="model.power" name="power">
+            <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-success">Submit</button>
+
+      </form>
+  </div>-->
+
+  <!-- EXTRA MATERIAL FOR DOCUMENTATION -->
+  <!--<hr>
+    <input type="text" class="form-control" id="name"
+           required
+           [(ngModel)]="model.name" name="name">
+    {{model.name}}-->
+  <hr>
+    <input type="text" class="form-control" id="name"
+           required
+           [ngModel]="model.name" name="name"
+           (ngModelChange)="model.name = $event">
+    {{model.name}}
+  <!--<hr>
+       <input type="text" class="form-control" id="name"
+         required
+         [(ngModel)]="model.name" name="name"
+         #spy>
+       <br>{{spy.className}}-->
+
 </div>
